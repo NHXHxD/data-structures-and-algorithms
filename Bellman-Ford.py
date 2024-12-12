@@ -9,5 +9,3 @@ def bellman_ford(vertices, edges, source):
                 dist[v] = dist[u] + w
 
     return dist
-
-
