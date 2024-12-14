@@ -3,7 +3,7 @@ class ListNode:
         self.val = val
         self.next = None
 
-class LinnkedList:
+class LinkedList:
     def __init__(self):
         self.head = ListNode(-1)
         self.tail = self.head

@@ -1,4 +1,5 @@
 from queue import deque
+
 class GraphNode:
     def __init__(self, val):
         self.val = val
@@ -6,25 +7,25 @@ class GraphNode:
 
 edges = [["A", "B"], ["B", "C"], ["B", "E"], ["C", "E"], ["E", "D"]]
 adjList = {}
-n = 4
-visit = set()
 for src, dst in edges:
     if src not in adjList:
         adjList[src] = []
     if dst not in adjList:
         adjList[dst] = []
     adjList[src].append(dst)
-
+    
+visit = set()
 def dfs(node):
     if node in visit:
         return
     visit.add(node)
-    # Process the node if needed, e.g., print it.
+    # Process the node
     print(node)
     for neighbor in adjList[node]:
         dfs(neighbor)
 
 dfs("A")
+
 def bfs(start):
     visited = set()
     queue = deque([start])
@@ -32,12 +33,13 @@ def bfs(start):
 
     while queue:
         node = queue.popleft()
-        print(node)  # Process the node (e.g., print it)
+        print(node)  # Process the node
 
         for neighbor in adjList[node]:
             if neighbor not in visited:
                 visited.add(neighbor)
                 queue.append(neighbor)
+
 # Count paths (backtracking)
 def backtracking(node, target, adjList, visit):
     if node in visit:
@@ -53,7 +55,6 @@ def backtracking(node, target, adjList, visit):
 
     return count
 
-# Shortest path from node to target
 def bfs(node, target, adjList):
     length = 0
     visit = set()
