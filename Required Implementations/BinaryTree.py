@@ -1,3 +1,4 @@
+from queue import deque
 class TreeNode:
     def __init__(self, val):
         self.val = val
@@ -19,8 +20,8 @@ class TreeNode:
             for i in range(len(queue)):
                 curr = queue.popleft()
                 print(curr.val)
-            if curr.left:
-                queue.append(root.left)
-            if curr.right:
-                queue.append(root.right)
-            
+                if curr.left:
+                    queue.append(curr.left)
+                if curr.right:
+                    queue.append(curr.right)
+                
